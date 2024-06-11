@@ -14,6 +14,7 @@ const CreateBook = () => {
   const navigate = useNavigate();
 
   const handleSaveBook = ()=>{
+    const url = import.meta.env.VITE_BACKEND_URL;
     const data = {
       title,
       author,
@@ -21,7 +22,7 @@ const CreateBook = () => {
     };
 
     setLoading(true);
-    axios.post('http://localhost:5555/books', data).then(()=>{
+    axios.post(`${url}/books`, data).then(()=>{
       setLoading(false);
       navigate('/');
     }).catch((error) =>{

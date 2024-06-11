@@ -14,8 +14,9 @@ const EditBook = () => {
   const navigate = useNavigate();
   const {id} = useParams();
   useEffect(()=>{
+    const url = import.meta.env.VITE_BACKEND_URL;
     setLoading(true);
-    axios.get(`http://localhost:5555/books/${id}`).then((res)=>{
+    axios.get(`${url}/books/${id}`).then((res)=>{
       setTitle(res.data.title);
       setAuthor(res.data.author);
       setPublishYear(res.data.publishYear);

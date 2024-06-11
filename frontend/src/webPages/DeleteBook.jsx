@@ -8,10 +8,10 @@ const DeleteBook = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const {id} = useParams();
-  
+  const url = import.meta.env.VITE_BACKEND_URL;
   const handleDeleteBook = ()=>{
     setLoading(true);
-    axios.delete(`http://localhost:5555/books/${id}`).then(()=>{
+    axios.delete(`${url}/books/${id}`).then(()=>{
       setLoading(false);
       navigate('/');
     }).catch((error)=>{

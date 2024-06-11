@@ -10,8 +10,9 @@ const ShowBook = () => {
   const{id} = useParams();
 
   useEffect(()=>{
+    const url = import.meta.env.VITE_BACKEND_URL;
     setLoading(true);
-    axios.get(`http://localhost:5555/books/${id}`).then((res)=>{
+    axios.get(`${url}/books/${id}`).then((res)=>{
       setBook(res.data);
       setLoading(false);
     }).catch((error)=>{
